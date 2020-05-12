@@ -1,4 +1,4 @@
-package com.richarddewan.omiselab.util.logging
+package com.richarddewan.omiselab.util.log
 
 import timber.log.Timber
 

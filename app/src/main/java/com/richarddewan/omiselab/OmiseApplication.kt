@@ -1,8 +1,8 @@
 package com.richarddewan.omiselab
 
 import android.app.Application
-import com.richarddewan.omiselab.util.logging.DebugTree
-import com.richarddewan.omiselab.util.logging.ReleaseTree
+import com.richarddewan.omiselab.util.log.DebugTree
+import com.richarddewan.omiselab.util.log.ReleaseTree
 import timber.log.Timber
 
 class OmiseApplication: Application() {
