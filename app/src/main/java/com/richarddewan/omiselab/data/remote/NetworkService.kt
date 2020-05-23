@@ -14,11 +14,11 @@ interface NetworkService {
 
     @Headers("Accept: application/json")
     @GET(Endpoints.CHARITY)
-    fun getCharity(): Single<Response<CharityResponse>>
+    fun getCharity(): Single<CharityResponse>
 
     @Headers("Accept: application/json")
     @POST(Endpoints.DONATION)
-    fun addDonation(@Body donationRequest: DonationRequest): Single<Response<DonationResponse>>
+    fun addDonation(@Body donationRequest: DonationRequest): Single<DonationResponse>
 
 
 }

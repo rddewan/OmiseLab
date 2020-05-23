@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.richarddewan.omiselab.data.repository.CharityRepository
 import com.richarddewan.omiselab.di.scope.FragmentScope
 import com.richarddewan.omiselab.ui.base.BaseFragment
-import com.richarddewan.omiselab.ui.dashboard.DashboardViewModel
+import com.richarddewan.omiselab.ui.Charity.CharityViewModel
 import com.richarddewan.omiselab.util.ViewModelProviderFactory
 import com.richarddewan.omiselab.util.network.NetworkHelper
 import com.richarddewan.omiselab.util.rx.ScheduleProvider
@@ -27,10 +27,10 @@ class FragmentModule(private val fragment: BaseFragment<*>) {
         scheduleProvider: ScheduleProvider,
         networkHelper: NetworkHelper,
         charityRepository: CharityRepository
-    ): DashboardViewModel =
-        ViewModelProvider(fragment,ViewModelProviderFactory(DashboardViewModel::class){
-            DashboardViewModel(
+    ): CharityViewModel =
+        ViewModelProvider(fragment,ViewModelProviderFactory(CharityViewModel::class){
+            CharityViewModel(
                 compositeDisposable, scheduleProvider, networkHelper, charityRepository
             )
-        }).get(DashboardViewModel::class.java)
+        }).get(CharityViewModel::class.java)
 }

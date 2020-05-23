@@ -51,6 +51,7 @@ class NetworkHelper constructor(private val context: Context) {
         try {
 
             if (throwable is ConnectException) return NetworkError(0, "0")
+            if (throwable is HttpException) return NetworkError(throwable.code(),"0")
             if (throwable !is HttpException) return defaultNetworkError
 
             val error = GsonBuilder()

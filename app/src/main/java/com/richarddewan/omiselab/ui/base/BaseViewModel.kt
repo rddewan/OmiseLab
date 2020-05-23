@@ -35,15 +35,23 @@ abstract class BaseViewModel(
         err?.let {
             networkHelper.castToNetworkError(it).run {
                 when (status) {
-                    -1 -> messageStringId.postValue(R.string.network_default_error)
-                    0 -> messageStringId.postValue(R.string.server_connection_error)
-                    HttpsURLConnection.HTTP_UNAUTHORIZED -> {
+
+                    HttpsURLConnection.HTTP_NOT_FOUND ->
+                        messageStringId.postValue(R.string.network_page_not_found)
+
+                    HttpsURLConnection.HTTP_UNAUTHORIZED ->
                         messageStringId.postValue(R.string.server_connection_error)
-                    }
+
                     HttpsURLConnection.HTTP_INTERNAL_ERROR ->
                         messageStringId.postValue(R.string.network_internal_error)
+
                     HttpsURLConnection.HTTP_UNAVAILABLE ->
                         messageStringId.postValue(R.string.network_server_not_available)
+
+                    -1 -> messageStringId.postValue(R.string.network_default_error)
+
+                    0 -> messageStringId.postValue(R.string.server_connection_error)
+
                     else -> messageString.postValue(message)
                 }
             }
