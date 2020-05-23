@@ -6,6 +6,7 @@ import com.richarddewan.omiselab.data.repository.CharityRepository
 import com.richarddewan.omiselab.di.scope.FragmentScope
 import com.richarddewan.omiselab.ui.base.BaseFragment
 import com.richarddewan.omiselab.ui.Charity.CharityViewModel
+import com.richarddewan.omiselab.ui.Charity.detail.CharityDetailViewModel
 import com.richarddewan.omiselab.util.ViewModelProviderFactory
 import com.richarddewan.omiselab.util.network.NetworkHelper
 import com.richarddewan.omiselab.util.rx.ScheduleProvider
@@ -28,9 +29,20 @@ class FragmentModule(private val fragment: BaseFragment<*>) {
         networkHelper: NetworkHelper,
         charityRepository: CharityRepository
     ): CharityViewModel =
-        ViewModelProvider(fragment,ViewModelProviderFactory(CharityViewModel::class){
+        ViewModelProvider(fragment, ViewModelProviderFactory(CharityViewModel::class) {
             CharityViewModel(
                 compositeDisposable, scheduleProvider, networkHelper, charityRepository
             )
         }).get(CharityViewModel::class.java)
+
+    @Provides
+    fun provideCharityDetailViewModel(
+        compositeDisposable: CompositeDisposable,
+        scheduleProvider: ScheduleProvider,
+        networkHelper: NetworkHelper
+    ) :CharityDetailViewModel = ViewModelProvider(fragment, ViewModelProviderFactory(CharityDetailViewModel::class){
+        CharityDetailViewModel(
+            compositeDisposable, scheduleProvider, networkHelper
+        )
+    }).get(CharityDetailViewModel::class.java)
 }

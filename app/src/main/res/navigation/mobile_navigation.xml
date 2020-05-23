@@ -15,11 +15,32 @@
         android:id="@+id/navigation_charity"
         android:name="com.richarddewan.omiselab.ui.Charity.CharityFragment"
         android:label="@string/title_charity"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_charity" >
+        <action
+            android:id="@+id/action_navigation_charity_to_charityDetailFragment"
+            app:destination="@id/navigation_charity_detail"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="false" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.richarddewan.omiselab.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_charity_detail"
+        android:name="com.richarddewan.omiselab.ui.Charity.detail.CharityDetailFragment"
+        android:label="Charity Detail"
+        tools:layout="@layout/charity_detail_fragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="logoUrl"
+            app:argType="string" />
+    </fragment>
 </navigation>

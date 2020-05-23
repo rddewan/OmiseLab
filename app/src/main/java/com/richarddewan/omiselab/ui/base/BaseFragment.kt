@@ -10,6 +10,8 @@ import com.richarddewan.omiselab.OmiseApplication
 import com.richarddewan.omiselab.di.component.DaggerFragmentComponent
 import com.richarddewan.omiselab.di.component.FragmentComponent
 import com.richarddewan.omiselab.di.module.FragmentModule
+import timber.log.Timber
+import java.util.*
 import javax.inject.Inject
 
 abstract class BaseFragment<VM: BaseViewModel>: Fragment() {
@@ -29,12 +31,14 @@ abstract class BaseFragment<VM: BaseViewModel>: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(layoutProvider(),container,false)
-
+    ): View? {
+        return view ?: inflater.inflate(layoutProvider(),container,false)
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupView(view)
         setupObserver()
+
     }
 
     protected open fun setupObserver(){
@@ -53,5 +57,8 @@ abstract class BaseFragment<VM: BaseViewModel>: Fragment() {
             .applicationComponent((requireContext().applicationContext as OmiseApplication).applicationComponent)
             .fragmentModule(FragmentModule(this))
             .build()
+
+
+
 
 }

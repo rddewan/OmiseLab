@@ -5,7 +5,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs'
 
 android {
-    
+
     dataBinding {
         enabled = true
     }
@@ -25,12 +25,12 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("String","BASE_URL","\"https://virtserver.swaggerhub.com/chakritw/tamboon-api/1.0.0/\"")
+            buildConfigField("String", "BASE_URL", "\"https://virtserver.swaggerhub.com/chakritw/tamboon-api/1.0.0/\"")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
-            buildConfigField("String","BASE_URL","\"https://virtserver.swaggerhub.com/chakritw/tamboon-api/1.0.0/\"")
+            buildConfigField("String", "BASE_URL", "\"https://virtserver.swaggerhub.com/chakritw/tamboon-api/1.0.0/\"")
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -79,6 +79,9 @@ dependencies {
 
     // Dagger
     implementation "com.google.dagger:dagger:$dagger_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
 
     // Image

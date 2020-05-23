@@ -3,6 +3,7 @@ package com.richarddewan.omiselab.di.component
 import com.richarddewan.omiselab.di.module.FragmentModule
 import com.richarddewan.omiselab.di.scope.FragmentScope
 import com.richarddewan.omiselab.ui.Charity.CharityFragment
+import com.richarddewan.omiselab.ui.Charity.detail.CharityDetailFragment
 import com.richarddewan.omiselab.ui.home.HomeFragment
 import com.richarddewan.omiselab.ui.notifications.NotificationsFragment
 import dagger.Component
@@ -16,4 +17,6 @@ interface FragmentComponent {
     fun inject(fragment: CharityFragment)
 
     fun inject(fragment: NotificationsFragment)
+
+    fun inject(fragement: CharityDetailFragment)
 }

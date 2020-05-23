@@ -1,6 +1,8 @@
 package com.richarddewan.omiselab.ui.Charity
 
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.richarddewan.omiselab.data.remote.response.CharityResponseList
 import com.richarddewan.omiselab.data.repository.CharityRepository
 import com.richarddewan.omiselab.ui.base.BaseViewModel
@@ -20,14 +22,18 @@ class CharityViewModel(
     val isLoading: MutableLiveData<Boolean> = MutableLiveData()
     val charirtyList: MutableLiveData<List<CharityResponseList>> = MutableLiveData()
 
+    init {
+        getCharityList()
+    }
+
 
     override fun onCreate() {
-        getCharityList()
+
         Timber.d("onCreate")
 
     }
 
-    fun getCharityList(){
+    private fun getCharityList(){
         isLoading.value = true
         if (checkNetworkConnectionWithMessage()){
             compositeDisposable.add(
@@ -35,7 +41,6 @@ class CharityViewModel(
                     .subscribeOn(scheduleProvider.io())
                     .subscribe(
                         {
-                            Timber.d(it.data.toString())
                             charirtyList.postValue(it.data)
                             isLoading.postValue(false)
                         },

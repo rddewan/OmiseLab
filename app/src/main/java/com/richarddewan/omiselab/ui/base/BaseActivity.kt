@@ -39,4 +39,5 @@ abstract class BaseActivity<VM: BaseViewModel>: AppCompatActivity() {
             .applicationComponent((application as OmiseApplication).applicationComponent)
             .activityModule(ActivityModule(this))
             .build()
+
 }
