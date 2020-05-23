@@ -26,11 +26,13 @@ android {
     buildTypes {
         debug {
             buildConfigField("String", "BASE_URL", "\"https://virtserver.swaggerhub.com/chakritw/tamboon-api/1.0.0/\"")
+            buildConfigField("String", "TOKEN", "\"pkey_test_5i9l2l0ftyftyj3ynkt\"")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
             buildConfigField("String", "BASE_URL", "\"https://virtserver.swaggerhub.com/chakritw/tamboon-api/1.0.0/\"")
+            buildConfigField("String", "TOKEN", "\"pkey_test_5i9l2l0ftyftyj3ynkt\"")
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

@@ -1,23 +1,54 @@
 package com.richarddewan.omiselab.ui.donation
 
-import androidx.lifecycle.LiveData
+
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.richarddewan.omiselab.data.remote.NetworkService
+import com.richarddewan.omiselab.data.remote.request.DonationRequest
+import com.richarddewan.omiselab.data.repository.DonationRepository
+import com.richarddewan.omiselab.ui.base.BaseViewModel
+import com.richarddewan.omiselab.util.network.NetworkHelper
+import com.richarddewan.omiselab.util.rx.ScheduleProvider
 import io.reactivex.disposables.CompositeDisposable
+import timber.log.Timber
 
 class DonationViewModel(
-    private val networkService: NetworkService,
-    private val compositeDisposable: CompositeDisposable
-) : ViewModel() {
+    compositeDisposable: CompositeDisposable,
+    scheduleProvider: ScheduleProvider,
+    networkHelper: NetworkHelper,
+    private val donationRepository: DonationRepository
+    ) : BaseViewModel(compositeDisposable, scheduleProvider, networkHelper) {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
+    var isLoading: MutableLiveData<Boolean> = MutableLiveData()
+    val isSuccess: MutableLiveData<Boolean> = MutableLiveData()
 
-    override fun onCleared() {
-        compositeDisposable.clear()
-        super.onCleared()
+    override fun onCreate() {
+
     }
+
+    fun sendDonation(donationRequest: DonationRequest){
+        isLoading.value = true
+        if (checkNetworkConnectionWithMessage()){
+            compositeDisposable.add(
+                donationRepository.addDonation(donationRequest)
+                    .subscribeOn(scheduleProvider.io())
+                    .subscribe(
+                        {
+                            isLoading.postValue(false)
+                            isSuccess.postValue(true)
+                        },
+                        {
+                            isLoading.postValue(false)
+                            isSuccess.postValue(false)
+                            handleNetworkError(it)
+                            Timber.e(it)
+                        }
+                    )
+            )
+
+        }
+        else {
+            isLoading.value = false
+        }
+    }
+
+
 }

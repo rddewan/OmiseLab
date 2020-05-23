@@ -8,5 +8,5 @@ data class DonationRequest (
     @SerializedName("token")
     val token: String,
     @SerializedName("amount")
-    val amount: Int
+    val amount: Double
 )

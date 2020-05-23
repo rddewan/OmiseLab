@@ -9,7 +9,14 @@
         android:id="@+id/navigation_donation"
         android:name="com.richarddewan.omiselab.ui.donation.DonationFragment"
         android:label="@string/title_donation"
-        tools:layout="@layout/fragment_donation" />
+        tools:layout="@layout/fragment_donation" >
+        <action
+            android:id="@+id/action_navigation_donation_to_donationSuccessFragment"
+            app:destination="@id/navigation_donation_success" />
+        <action
+            android:id="@+id/action_navigation_donation_to_navigation_donation_success"
+            app:destination="@id/navigation_donation_success" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_charity"
@@ -42,5 +49,14 @@
         <argument
             android:name="logoUrl"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_donation_success"
+        android:name="com.richarddewan.omiselab.ui.donation.success.DonationSuccessFragment"
+        android:label="Donation Success"
+        tools:layout="@layout/donation_success_fragment">
+        <action
+            android:id="@+id/action_donationSuccessFragment_to_navigation_donation"
+            app:destination="@id/navigation_donation" />
     </fragment>
 </navigation>

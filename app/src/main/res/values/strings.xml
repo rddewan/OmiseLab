@@ -19,15 +19,18 @@
     <string name="img_description">image discription</string>
 
     <string name="card_payment">Card Payment</string>
-    <string name="card_number">Card Number</string>
-    <string name="name_on_card">Name on Card</string>
-    <string name="amount">Amount</string>
+    <string name="card_number">Card Number *</string>
+    <string name="name_on_card">Name on Card *</string>
+    <string name="exp_date">Expiry Date *</string>
+    <string name="cvv">CVV *</string>
+    <string name="amount">Amount *</string>
     <string name="submit">Submit</string>
     <string name="success_thank_you">Thank You For Your Donation</string>
     <string name="donation_amount">Donation Amount</string>
     <string name="hint_enter_your_donation_amount">Enter Your Donation Amount</string>
     <string name="button_pay">Pay</string>
-    <string name="exp_date">Expiry Date</string>
-    <string name="cvv">CVV</string>
+
     <string name="scan_card">Scan Card</string>
+    <string name="empty_field_title">Empty Filed!</string>
+    <string name="empty_field_msg">Empty field not allowed. Please fill in all the required field.</string>
 </resources>
