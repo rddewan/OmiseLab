@@ -1,4 +1,4 @@
-package com.richarddewan.omiselab.ui.home
+package com.richarddewan.omiselab.ui.donation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.richarddewan.omiselab.data.remote.NetworkService
 import io.reactivex.disposables.CompositeDisposable
 
-class HomeViewModel(
+class DonationViewModel(
     private val networkService: NetworkService,
     private val compositeDisposable: CompositeDisposable
 ) : ViewModel() {
