@@ -2,8 +2,15 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'com.google.gms.google-services'
 
 android {
+
+    dataBinding {
+        enabled = true
+    }
+
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
@@ -18,16 +25,22 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://virtserver.swaggerhub.com/chakritw/tamboon-api/1.0.0/\"")
+            buildConfigField("String", "TOKEN", "\"pkey_test_5i9l2l0ftyftyj3ynkt\"")
             minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            buildConfigField("String", "BASE_URL", "\"https://virtserver.swaggerhub.com/chakritw/tamboon-api/1.0.0/\"")
+            buildConfigField("String", "TOKEN", "\"pkey_test_5i9l2l0ftyftyj3ynkt\"")
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
-// To inline the bytecode built with JVM target 1.8 into
-// bytecode that is being built with JVM target 1.6. (e.g. navArgs)
-
-
+    // To inline the bytecode built with JVM target 1.8 into
+    // bytecode that is being built with JVM target 1.6. (e.g. navArgs)
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -55,6 +68,13 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation"
 
+    //https://square.github.io/retrofit/
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0"
+
     // Reactive
     implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
@@ -62,6 +82,9 @@ dependencies {
 
     // Dagger
     implementation "com.google.dagger:dagger:$dagger_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
 
     // Image
@@ -69,8 +92,28 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle"
+    //https://github.com/JakeWharton/timber
+    implementation "com.jakewharton.timber:timber:$timber"
+
+    //https://github.com/Kotlin/anko
+    implementation "org.jetbrains.anko:anko:$anko"
+
+    //https://firebase.google.com/docs/ml-kit/android/recognize-text
+    implementation "com.google.firebase:firebase-analytics:$firebase_analytics"
+    implementation "com.google.firebase:firebase-ml-vision:$firebase_ml_vision"
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    //hamcrest for assertion
+    testImplementation "org.hamcrest:hamcrest-library:$hamcrest_version"
+    //mockito to mock class
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    //mockito mock final class
+    testImplementation "org.mockito:mockito-inline:$mockito_version"
+    //android architecture core testing
+    testImplementation "android.arch.core:core-testing:$core_testing_version"
+    //dagger testing
+    kaptTest "com.google.dagger:dagger-compiler:$dagger_version"
 }

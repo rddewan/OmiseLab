@@ -1,6 +1,38 @@
 <resources>
     <string name="app_name">OmiseLab</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_donation">Donation</string>
+    <string name="title_charity">Charity</string>
     <string name="title_notifications">Notifications</string>
+
+
+    <!-- network error -->
+    <string name="network_connection_error_title">Ouch! No Internet</string>
+    <string name="network_connection_error">Internet connection lost, please retry again</string>
+    <string name="network_default_error">Something wrong happened, please retry again</string>
+    <string name="network_internal_error">Our systems got an error, please retry again</string>
+    <string name="network_server_not_available">Our services are under maintenance, please retry after some time </string>
+    <string name="network_page_not_found">Sorry page you are looking was not found.</string>
+    <string name="server_connection_error">Not able to connect, please retry again</string>
+    <string name="btn_ok">OK</string>
+
+    <string name="general_error_title">"Ouch!.."</string>
+    <string name="img_description">image discription</string>
+
+    <string name="card_payment">Card Payment</string>
+    <string name="card_number">Card Number *</string>
+    <string name="name_on_card">Name on Card *</string>
+    <string name="exp_month">Exp Month *</string>
+    <string name="exp_year">Exp Year *</string>
+    <string name="cvv">CVV *</string>
+    <string name="amount">Amount *</string>
+    <string name="submit">Submit</string>
+    <string name="success_thank_you">Thank You For Your Donation</string>
+    <string name="donation_amount">Donation Amount</string>
+    <string name="hint_enter_your_donation_amount">Enter Your Donation Amount</string>
+    <string name="button_pay">Pay</string>
+
+    <string name="scan_card">Scan Card</string>
+    <string name="empty_field_title">Empty Filed!</string>
+    <string name="empty_field_msg">Empty field not allowed. Please fill in all the required field.</string>
+
 </resources>
