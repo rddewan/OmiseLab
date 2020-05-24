@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.donation.DonationFragment">
 
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutName"
         style="@style/TextInputLayout"
@@ -47,21 +48,66 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutExpDate"
+        android:id="@+id/textInputLayoutExpMonth"
         style="@style/TextInputLayout"
-        android:layout_width="150dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/textInputLayoutExpYear"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCard">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtExpDate"
+            android:id="@+id/txtExpMonth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/exp_date"
+            android:hint="@string/exp_month"
             android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutExpYear"
+        style="@style/TextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/textInputLayoutCvv"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textInputLayoutExpMonth"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCard">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtExpYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/exp_year"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutCvv"
+        style="@style/TextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textInputLayoutExpYear"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCard">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtExpCvv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/cvv"
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,7 +121,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutExpDate">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutExpMonth">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtAmount"
@@ -83,25 +129,6 @@
             android:layout_height="wrap_content"
             android:hint="@string/amount"
             android:inputType="numberDecimal" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutCvv"
-        style="@style/TextInputLayout"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/textInputLayoutExpDate"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCard">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtExpCvv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/cvv"
-            android:inputType="number" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton

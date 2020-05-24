@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'com.google.gms.google-services'
 
 android {
 
@@ -96,6 +97,11 @@ dependencies {
 
     //https://github.com/Kotlin/anko
     implementation "org.jetbrains.anko:anko:$anko"
+
+    //https://firebase.google.com/docs/ml-kit/android/recognize-text
+    implementation "com.google.firebase:firebase-analytics:$firebase_analytics"
+    implementation "com.google.firebase:firebase-ml-vision:$firebase_ml_vision"
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
