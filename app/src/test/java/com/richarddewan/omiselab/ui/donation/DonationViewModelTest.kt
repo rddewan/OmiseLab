@@ -75,7 +75,7 @@ class DonationViewModelTest {
     @Test
     fun givenValidDonationRequest_whenSendDonation_returnSuccessResponse(){
         val request = DonationRequest("John Smith","token_test_123",100.20)
-        val response = DonationResponse(true,"200","Success")
+        val response = DonationResponse(true,"ino error","Success")
 
         doReturn(true)
             .`when`(networkHelper)

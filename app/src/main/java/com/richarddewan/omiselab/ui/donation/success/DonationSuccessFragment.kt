@@ -20,7 +20,8 @@ class DonationSuccessFragment : BaseFragment<DonationSuccessViewModel>() {
 
     override fun setupView(view: View) {
         btnSuccessOk.setOnClickListener {
-            findNavController().navigate(DonationSuccessFragmentDirections.actionDonationSuccessFragmentToNavigationDonation())
+
+            findNavController().navigate(DonationSuccessFragmentDirections.actionNavigationDonationSuccessToNavigationDonation())
         }
 
     }
