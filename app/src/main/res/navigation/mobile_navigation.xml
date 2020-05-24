@@ -11,11 +11,9 @@
         android:label="@string/title_donation"
         tools:layout="@layout/fragment_donation" >
         <action
-            android:id="@+id/action_navigation_donation_to_donationSuccessFragment"
-            app:destination="@id/navigation_donation_success" />
-        <action
             android:id="@+id/action_navigation_donation_to_navigation_donation_success"
-            app:destination="@id/navigation_donation_success" />
+            app:destination="@id/navigation_donation_success"
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -56,7 +54,7 @@
         android:label="Donation Success"
         tools:layout="@layout/donation_success_fragment">
         <action
-            android:id="@+id/action_donationSuccessFragment_to_navigation_donation"
+            android:id="@+id/action_navigation_donation_success_to_navigation_donation"
             app:destination="@id/navigation_donation"
             app:popUpTo="@id/navigation_donation"
             app:popUpToInclusive="true" />

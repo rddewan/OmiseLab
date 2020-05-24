@@ -15,6 +15,7 @@ import com.richarddewan.omiselab.R
 import com.richarddewan.omiselab.data.remote.request.DonationRequest
 import com.richarddewan.omiselab.di.component.FragmentComponent
 import com.richarddewan.omiselab.ui.base.BaseFragment
+import com.richarddewan.omiselab.ui.donation.success.DonationSuccessFragment
 import com.richarddewan.omiselab.util.validate.Validator
 import kotlinx.android.synthetic.main.fragment_donation.*
 import org.jetbrains.anko.support.v4.alert
@@ -76,8 +77,8 @@ class DonationFragment : BaseFragment<DonationViewModel>() {
         })
 
         viewModel.donationResponse.observe(viewLifecycleOwner, Observer {
-            if (it.errorCode == "200"){
-                findNavController().navigate(DonationFragmentDirections.actionNavigationDonationToDonationSuccessFragment())
+            if (it.success){
+                findNavController().navigate(DonationFragmentDirections.actionNavigationDonationToNavigationDonationSuccess())
             }
             else {
                 showErrorDialog(it.errorMessage)
