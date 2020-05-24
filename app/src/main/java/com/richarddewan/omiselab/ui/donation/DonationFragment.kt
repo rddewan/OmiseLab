@@ -72,8 +72,15 @@ class DonationFragment : BaseFragment<DonationViewModel>() {
         })
 
         viewModel.isSuccess.observe(viewLifecycleOwner, Observer {
-            if (it) {
+
+        })
+
+        viewModel.donationResponse.observe(viewLifecycleOwner, Observer {
+            if (it.errorCode == "200"){
                 findNavController().navigate(DonationFragmentDirections.actionNavigationDonationToDonationSuccessFragment())
+            }
+            else {
+                showErrorDialog(it.errorMessage)
             }
         })
     }

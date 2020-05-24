@@ -60,5 +60,9 @@ ext {
     //firebase / ML
     firebase_analytics = "17.4.1"
     firebase_ml_vision = "24.0.3"
+    //test
+    hamcrest_version = '2.1'
+    mockito_version = '3.3.3'
+    core_testing_version = '1.1.1'
 }
 

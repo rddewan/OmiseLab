@@ -3,6 +3,7 @@ package com.richarddewan.omiselab.ui.donation
 
 import androidx.lifecycle.MutableLiveData
 import com.richarddewan.omiselab.data.remote.request.DonationRequest
+import com.richarddewan.omiselab.data.remote.response.DonationResponse
 import com.richarddewan.omiselab.data.repository.DonationRepository
 import com.richarddewan.omiselab.ui.base.BaseViewModel
 import com.richarddewan.omiselab.util.network.NetworkHelper
@@ -19,6 +20,7 @@ class DonationViewModel(
 
     var isLoading: MutableLiveData<Boolean> = MutableLiveData()
     val isSuccess: MutableLiveData<Boolean> = MutableLiveData()
+    val donationResponse: MutableLiveData<DonationResponse> = MutableLiveData()
 
     override fun onCreate() {
 
@@ -34,6 +36,8 @@ class DonationViewModel(
                         {
                             isLoading.postValue(false)
                             isSuccess.postValue(true)
+                            donationResponse.postValue(it)
+
                         },
                         {
                             isLoading.postValue(false)

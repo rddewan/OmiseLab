@@ -106,4 +106,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    //hamcrest for assertion
+    testImplementation "org.hamcrest:hamcrest-library:$hamcrest_version"
+    //mockito to mock class
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    //mockito mock final class
+    testImplementation "org.mockito:mockito-inline:$mockito_version"
+    //android architecture core testing
+    testImplementation "android.arch.core:core-testing:$core_testing_version"
+    //dagger testing
+    kaptTest "com.google.dagger:dagger-compiler:$dagger_version"
 }

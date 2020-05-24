@@ -33,7 +33,7 @@ class CharityViewModel(
 
     }
 
-    private fun getCharityList(){
+    fun getCharityList(){
         isLoading.value = true
         if (checkNetworkConnectionWithMessage()){
             compositeDisposable.add(
